@@ -1,15 +1,21 @@
 pipeline {
-    agent any 
+    agent any
+
+    tools {
+        jdk 'jdk17'
+    }
+
     stages {
-          stage('Build') {
-              steps {
-                  sh 'javac Hello.java'
-              }
-          }
-          stage('Run') {
-              steps {
-                  sh 'java Hello'
-              }
-          }
-      }
+        stage('Build') {
+            steps {
+                sh 'javac Hello.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                sh 'java Hello'
+            }
+        }
+    }
 }
